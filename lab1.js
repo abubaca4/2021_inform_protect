@@ -98,8 +98,64 @@ update_bbs();
 
 function get_lfsr_mat() {
     let data = [];
-
+    for (let i = 0; i < 5; i++) {
+        data[i] = [];
+        for (let j = 0; j < 5; j++) {
+            if (i === j) {
+                data[i][j] = 1;
+            }
+            else {
+                data[i][j] = 0;
+            }
+        }
+    }
+    data[0][0] = parseInt(x4_data.value);
+    data[0][1] = parseInt(x3_data.value);
+    data[0][2] = parseInt(x2_data.value);
+    data[0][3] = parseInt(x_data.value);
+    data[0][4] = parseInt(b_data.value);
+    return data;
 }
+
+function mat_x_vec(mat, vec) {
+    let result = [];
+    for (let index = 0; index < vec.length; index++) {
+        result[index] = 0;
+    }
+    for (let index = 0; index < vec.length; index++) {
+        const element = vec[index];
+        let temp = 0;
+        for (let index_2 = 0; index_2 < mat.length; index_2++) {
+            temp += mat[index_2][index] * element;
+        }
+    }
+    return result;
+}
+
+function get_lfsr() {
+    let result = [];
+    let mat = get_lfsr_mat();
+    let x = [1, 0, 0, 0, 0];
+    let count = parseInt(count_data.value);
+    for (let i = 0; i < count; i++) {
+        let temp = 0;
+        x = mat_x_vec(mat, x);
+        x.forEach(element => {
+            temp = temp << 1;
+            temp += element % 2;
+        });
+        result.push(temp);
+    }
+    return result;
+}
+
+function update_lfsr() {
+    let data = get_lfsr();
+    document.getElementById("lfsr_text_result").innerHTML = data.join("<br/>");
+    show_gist("lfsr_gist_result", data);
+}
+
+update_lfsr();
 
 a_data.addEventListener("change", update_lcd);
 c_data.addEventListener("change", update_lcd);
@@ -110,6 +166,12 @@ interval_data.addEventListener("change", function () {
 count_data.addEventListener("change", function () {
     update_lcd();
     update_bbs();
+    update_lfsr();
 });
 p_data.addEventListener("change", update_bbs);
 q_data.addEventListener("change", update_bbs);
+x4_data.addEventListener("change", update_lfsr);
+x3_data.addEventListener("change", update_lfsr);
+x2_data.addEventListener("change", update_lfsr);
+x_data.addEventListener("change", update_lfsr);
+b_data.addEventListener("change", update_lfsr);
