@@ -69,6 +69,7 @@ function get_bbs() {
     let q = parseInt(q_data.value);
     let interval = parseInt(interval_data.value);
     let count = parseInt(count_data.value);
+    let power_of_two = Math.floor(Math.log(interval) / Math.log(2));
     let M = p * q;
     let x;
     do {
@@ -76,8 +77,13 @@ function get_bbs() {
     } while (isCoprime(x, M));
     x = bbs_get_xn(x, M);
     for (let i = 0; i < count; i++) {
-        x = bbs_get_xn(x, M);
-        result.push(x % interval);
+        let xn = 0;
+        for (let j = 0; j < power_of_two; j++) {
+            x = bbs_get_xn(x, M);
+            xn = xn << 1;
+            xn += x % 2;
+        }
+        result.push(xn);
     }
     return result;
 }
@@ -90,7 +96,10 @@ function update_bbs() {
 
 update_bbs();
 
+function get_lfsr_mat() {
+    let data = [];
 
+}
 
 a_data.addEventListener("change", update_lcd);
 c_data.addEventListener("change", update_lcd);
