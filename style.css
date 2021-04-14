@@ -1,0 +1,8 @@
+.text_result {
+height: 100%;
+overflow-y: auto;
+}
+
+.result_row {
+height: 300px;
+}

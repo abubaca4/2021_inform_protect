@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js" defer></script>
+    <script src="./lab1.js" defer></script>
+
+	<title>Лабораторная работа 1</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+	<div class="container-fluid">
+        <div id="data_input_div">
+            <h3>Введите данные:</h3>
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <label for="id_a_data" class="col-sm-4 col-form-label">a(5):</label>
+                        <input type="number" class="form-control col-sm-8" id="id_a_data" value="5">
+                    </div>
+                    <div class="row">
+                        <label for="id_c_data" class="col-sm-4 col-form-label">c(3):</label>
+                        <input type="number" class="form-control col-sm-8" id="id_c_data" value="3">
+                    </div>
+                    <div class="row">
+                        <label for="id_interval_data" class="col-sm-4 col-form-label">Интервал(m):</label>
+                        <input type="number" class="form-control col-sm-8" id="id_interval_data" value="32">
+                    </div>
+                    <div class="row">
+                        <label for="id_count_data" class="col-sm-4 col-form-label">Колличество чисел(N):</label>
+                        <input type="number" class="form-control col-sm-8" id="id_count_data" value="500">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <label for="id_p_data" class="col-sm-2 col-form-label">p(131):</label>
+                        <input type="number" class="form-control col-sm-10" id="id_p_data" value="131">
+                    </div>
+                    <div class="row">
+                        <label for="id_q_data" class="col-sm-2 col-form-label">q(47):</label>
+                        <input type="number" class="form-control col-sm-10" id="id_q_data" value="47">
+                    </div>
+                </div>
+                <div class="col">
+                    <p>Введите полином:</p>
+                    <div class="row">
+                        <label for="id_x4_data" class="col-sm-2 col-form-label">x^4(1):</label>
+                        <input type="number" class="form-control col-sm-10" id="id_x4_data" value="1">
+                    </div>
+                    <div class="row">
+                        <label for="id_x3_data" class="col-sm-2 col-form-label">x^3(1):</label>
+                        <input type="number" class="form-control col-sm-10" id="id_x3_data" value="1">
+                    </div>
+                    <div class="row">
+                        <label for="id_x2_data" class="col-sm-2 col-form-label">x^2(0):</label>
+                        <input type="number" class="form-control col-sm-10" id="id_x2_data" value="0">
+                    </div>
+                    <div class="row">
+                        <label for="id_x_data" class="col-sm-2 col-form-label">x(1):</label>
+                        <input type="number" class="form-control col-sm-10" id="id_x_data" value="1">
+                    </div>
+                    <div class="row">
+                        <label for="id_b_data" class="col-sm-2 col-form-label">b(1):</label>
+                        <input type="number" class="form-control col-sm-10" id="id_b_data" value="1">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="lcg_result">
+            <h3>Линейный конгруэнтный генератор <span style="font-size:14.0pt;line-height:
+                150%">X <sub>n + 1 </sub>= (a X <sub>n</sub> + c) <span class="SpellE">mod</span>
+                m<o:p></o:p></span>
+                </h3>
+            <div class="row result_row">
+                <div class="col-2 text_result" id="lcg_text_result">
+                </div>
+                <div class="col-10 gist_result" id="lcg_gist_result">
+                </div>
+            </div>
+        </div>
+        <div id="bbs_result">
+            <h3>Генератор псевдослучайных чисел BBS</h3>
+            <div class="row result_row">
+                <div class="col-2 text_result" id="bbs_text_result">
+                </div>
+                <div class="col-10 gist_result" id="bbs_gist_result">
+                </div>
+            </div>
+        </div>
+        <div id="lfsr_result">
+            <h3>Линейный рекуррентный генераторо LFSR</h3>
+            <div class="row result_row">
+                <div class="col-2 text_result" id="lfsr_text_result">
+                </div>
+                <div class="col-10 gist_result" id="lfsr_gist_result">
+                </div>
+            </div>
+        </div>
+	</div>
+</html>
