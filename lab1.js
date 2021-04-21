@@ -123,10 +123,8 @@ function mat_x_vec(mat, vec) {
         result[index] = 0;
     }
     for (let index = 0; index < vec.length; index++) {
-        const element = vec[index];
-        let temp = 0;
         for (let index_2 = 0; index_2 < mat.length; index_2++) {
-            temp += mat[index_2][index] * element;
+            result[index] += mat[index][index_2] * vec[index_2];
         }
     }
     return result;
