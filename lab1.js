@@ -101,7 +101,7 @@ function get_lfsr_mat() {
     for (let i = 0; i < 5; i++) {
         data[i] = [];
         for (let j = 0; j < 5; j++) {
-            if (i === j) {
+            if (i - 1 === j) {
                 data[i][j] = 1;
             }
             else {
