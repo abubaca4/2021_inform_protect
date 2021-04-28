@@ -138,6 +138,7 @@ function get_lfsr() {
     for (let i = 0; i < count; i++) {
         let temp = 0;
         x = mat_x_vec(mat, x);
+        x = x.map((j) => j % 2);
         x.forEach(element => {
             temp = temp << 1;
             temp += element % 2;
