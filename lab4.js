@@ -15,10 +15,10 @@ function count_diff(a, b) {
         let a_bin = (a[index] >>> 0).toString(2);
         let b_bin = (b[index] >>> 0).toString(2);
         if (a_bin.length > b_bin.length) {
-            b_bin += '0' * (a_bin.length - b_bin.length);
+            b_bin += '0'.repeat(a_bin.length - b_bin.length);
         }
         else {
-            a_bin += '0' * (b_bin.length - a_bin.length);
+            a_bin += '0'.repeat(b_bin.length - a_bin.length);
         }
         for (let i = 0; i < a_bin.length; i++) {
             if (a_bin[i] != b_bin[i]) {
