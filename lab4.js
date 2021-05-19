@@ -4,7 +4,7 @@ var k_data = document.getElementById('id_k_data');
 function to_bits(input) {
     let bits_arr = [];
     for (let index = 0; index < input.length; index++) {
-        bits_arr.push(input.charCodeAt(index) - 'a'.charCodeAt(0));
+        bits_arr.push(input.charCodeAt(index) - 'а'.charCodeAt(0));
     }
     return bits_arr;
 }
@@ -32,7 +32,7 @@ function count_diff(a, b) {
 function to_chars(bits) {
     let s = "";
     bits.forEach(element => {
-        s += String.fromCharCode(element);
+        s += String.fromCharCode(element + 'а'.charCodeAt(0));
     });
     return s;
 }
