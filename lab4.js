@@ -83,9 +83,17 @@ function update_result() {
     text_f += to_chars(p_bits) + '<br>';
     let ecb_bits = ecb(p, k);
     let cbc_bits = cbc(p, k);
-    let ofb_bits = ofb(p, k);
-    let cfb_bits = cfb(p, k);
+    let ofb_bits = ofb(p);
+    let cfb_bits = cfb(p);
     text_f += `p_bits: ${p_bits}` + '<br>';
+    text_f += `ecb_bits: ${ecb_bits}` + '<br>';
+    text_f += `p_bits ^ ecb_bits: ${count_diff(p_bits, ecb_bits)}` + '<br>';
+    text_f += `cbc_bits: ${cbc_bits}` + '<br>';
+    text_f += `p_bits ^ cbc_bits: ${count_diff(p_bits, cbc_bits)}` + '<br>';
+    text_f += `ofb_bits: ${ofb_bits}` + '<br>';
+    text_f += `p_bits ^ ecb_bits: ${count_diff(p_bits, ofb_bits)}` + '<br>';
+    text_f += `cfb_bits: ${cfb_bits}` + '<br>';
+    text_f += `p_bits ^ cbc_bits: ${count_diff(p_bits, cfb_bits)}`;
     document.getElementById("text_result").innerHTML = text_f;
 }
 
