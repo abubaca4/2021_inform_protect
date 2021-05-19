@@ -52,7 +52,7 @@ function cbc(p, k) {
     let k_bits = to_bits(k);
     let c = [28];
     for (let index = 0; index < p_bits.length; index++) {
-        c.push((p_bits[index] ^ c[-1]) ^ k_bits[index % k_bits.length] ^ 1);
+        c.push((p_bits[index] ^ c[c.length - 1]) ^ k_bits[index % k_bits.length] ^ 1);
     }
     return c.slice(1);
 }
